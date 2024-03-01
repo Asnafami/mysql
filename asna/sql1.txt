@@ -1,0 +1,270 @@
+mysql> select * from college;
++------+------------------------------+------+
+| id   | name                         | age  |
++------+------------------------------+------+
+|    1 | robin sakariyya              | NULL |
+|    2 | beegum hasrath mahal         | NULL |
+|    3 | ayesha binth mohammed muneer | NULL |
+|    4 | nawaf                        | NULL |
+|    5 | hena                         | NULL |
+|    7 | abay                         | NULL |
+|    8 | robin                        | NULL |
+|    9 | beegum                       | NULL |
+|   10 | hasrath                      | NULL |
+|   10 | hasrath                      | NULL |
++------+------------------------------+------+
+10 rows in set (0.00 sec)
+
+mysql> update college set department='mca' where id='1';
+Query OK, 1 row affected (0.00 sec)
+Rows matched: 1  Changed: 1  Warnings: 0
+
+mysql> update college set department='m.com' where id='2';
+Query OK, 1 row affected (0.00 sec)
+Rows matched: 1  Changed: 1  Warnings: 0
+
+mysql> update college set department='m.tech' where id='3';
+Query OK, 1 row affected (0.00 sec)
+Rows matched: 1  Changed: 1  Warnings: 0
+
+mysql> update college set department='btech' where id='4';
+Query OK, 1 row affected (0.00 sec)
+Rows matched: 1  Changed: 1  Warnings: 0
+
+mysql> update college set department='bca' where id='5';
+Query OK, 1 row affected (0.00 sec)
+Rows matched: 1  Changed: 1  Warnings: 0
+
+mysql> update college set department='mca' where id='7';
+Query OK, 1 row affected (0.00 sec)
+Rows matched: 1  Changed: 1  Warnings: 0
+
+mysql> update college set department='bca' where id='8';
+Query OK, 1 row affected (0.00 sec)
+Rows matched: 1  Changed: 1  Warnings: 0
+
+mysql> update college set department='m.com' where id='9';
+Query OK, 1 row affected (0.00 sec)
+Rows matched: 1  Changed: 1  Warnings: 0
+
+mysql> update college set department='mca' where id='10';
+Query OK, 2 rows affected (0.00 sec)
+Rows matched: 2  Changed: 2  Warnings: 0
+
+mysql> select * from college;
++------+------------------------------+------+------------+
+| id   | name                         | age  | department |
++------+------------------------------+------+------------+
+|    1 | robin sakariyya              |   23 | mca        |
+|    2 | beegum hasrath mahal         |   12 | m.com      |
+|    3 | ayesha binth mohammed muneer |   16 | m.tech     |
+|    4 | nawaf                        |   16 | btech      |
+|    5 | hena                         |   18 | bca        |
+|    7 | abay                         |   19 | mca        |
+|    8 | robin                        |   30 | bca        |
+|    9 | beegum                       |   24 | m.com      |
+|   10 | hasrath                      |   34 | mca        |
+|   10 | hasrath                      |   34 | mca        |
++------+------------------------------+------+------------+
+10 rows in set (0.00 sec)
+
+mysql> select distict id,name,age,department;
+ERROR 1054 (42S22): Unknown column 'distict' in 'field list'
+mysql> select distict id,name,age,department from college;
+ERROR 1054 (42S22): Unknown column 'distict' in 'field list'
+mysql> select distinct id,name,age,department from college;
++------+------------------------------+------+------------+
+| id   | name                         | age  | department |
++------+------------------------------+------+------------+
+|    1 | robin sakariyya              |   23 | mca        |
+|    2 | beegum hasrath mahal         |   12 | m.com      |
+|    3 | ayesha binth mohammed muneer |   16 | m.tech     |
+|    4 | nawaf                        |   16 | btech      |
+|    5 | hena                         |   18 | bca        |
+|    7 | abay                         |   19 | mca        |
+|    8 | robin                        |   30 | bca        |
+|    9 | beegum                       |   24 | m.com      |
+|   10 | hasrath                      |   34 | mca        |
++------+------------------------------+------+------------+
+9 rows in set (0.00 sec)
+
+mysql> update college set id='6' where name='abay';
+Query OK, 1 row affected (0.00 sec)
+Rows matched: 1  Changed: 1  Warnings: 0
+
+mysql> update college set id='7' where name='robin';
+Query OK, 1 row affected (0.00 sec)
+Rows matched: 1  Changed: 1  Warnings: 0
+
+mysql> update college set id='8' where name='beegum';
+Query OK, 1 row affected (0.00 sec)
+Rows matched: 1  Changed: 1  Warnings: 0
+
+mysql> update college set id='9' where name='hasrath';
+Query OK, 2 rows affected (0.00 sec)
+Rows matched: 2  Changed: 2  Warnings: 0
+
+mysql> select * from college;
++------+------------------------------+------+------------+
+| id   | name                         | age  | department |
++------+------------------------------+------+------------+
+|    1 | robin sakariyya              |   23 | mca        |
+|    2 | beegum hasrath mahal         |   12 | m.com      |
+|    3 | ayesha binth mohammed muneer |   16 | m.tech     |
+|    4 | nawaf                        |   16 | btech      |
+|    5 | hena                         |   18 | bca        |
+|    6 | abay                         |   19 | mca        |
+|    7 | robin                        |   30 | bca        |
+|    8 | beegum                       |   24 | m.com      |
+|    9 | hasrath                      |   34 | mca        |
+|    9 | hasrath                      |   34 | mca        |
++------+------------------------------+------+------------+
+10 rows in set (0.00 sec)
+
+mysql> delete  from college where name='hasrath';
+Query OK, 2 rows affected (0.00 sec)
+
+mysql> select * from college;
++------+------------------------------+------+------------+
+| id   | name                         | age  | department |
++------+------------------------------+------+------------+
+|    1 | robin sakariyya              |   23 | mca        |
+|    2 | beegum hasrath mahal         |   12 | m.com      |
+|    3 | ayesha binth mohammed muneer |   16 | m.tech     |
+|    4 | nawaf                        |   16 | btech      |
+|    5 | hena                         |   18 | bca        |
+|    6 | abay                         |   19 | mca        |
+|    7 | robin                        |   30 | bca        |
+|    8 | beegum                       |   24 | m.com      |
++------+------------------------------+------+------------+
+8 rows in set (0.00 sec)
+
+mysql> insert into college values('9','akash','22','mca');
+Query OK, 1 row affected (0.00 sec)
+
+mysql> insert into college values('10','asna','21','m.tech');
+Query OK, 1 row affected (0.00 sec)
+
+mysql> select * from college;
++------+------------------------------+------+------------+
+| id   | name                         | age  | department |
++------+------------------------------+------+------------+
+|    1 | robin sakariyya              |   23 | mca        |
+|    2 | beegum hasrath mahal         |   12 | m.com      |
+|    3 | ayesha binth mohammed muneer |   16 | m.tech     |
+|    4 | nawaf                        |   16 | btech      |
+|    5 | hena                         |   18 | bca        |
+|    6 | abay                         |   19 | mca        |
+|    7 | robin                        |   30 | bca        |
+|    8 | beegum                       |   24 | m.com      |
+|    9 | akash                        |   22 | mca        |
+|   10 | asna                         |   21 | m.tech     |
++------+------------------------------+------+------------+
+10 rows in set (0.00 sec)
+
+mysql> select * from college where id='10';
++------+------+------+------------+
+| id   | name | age  | department |
++------+------+------+------------+
+|   10 | asna |   21 | m.tech     |
++------+------+------+------------+
+1 row in set (0.00 sec)
+
+mysql> select * from college where id>5;
++------+--------+------+------------+
+| id   | name   | age  | department |
++------+--------+------+------------+
+|    6 | abay   |   19 | mca        |
+|    7 | robin  |   30 | bca        |
+|    8 | beegum |   24 | m.com      |
+|    9 | akash  |   22 | mca        |
+|   10 | asna   |   21 | m.tech     |
++------+--------+------+------------+
+5 rows in set (0.00 sec)
+
+mysql> select * from college where id>=5;
++------+--------+------+------------+
+| id   | name   | age  | department |
++------+--------+------+------------+
+|    5 | hena   |   18 | bca        |
+|    6 | abay   |   19 | mca        |
+|    7 | robin  |   30 | bca        |
+|    8 | beegum |   24 | m.com      |
+|    9 | akash  |   22 | mca        |
+|   10 | asna   |   21 | m.tech     |
++------+--------+------+------------+
+6 rows in set (0.00 sec)
+
+mysql> select * from college where id<5;
++------+------------------------------+------+------------+
+| id   | name                         | age  | department |
++------+------------------------------+------+------------+
+|    1 | robin sakariyya              |   23 | mca        |
+|    2 | beegum hasrath mahal         |   12 | m.com      |
+|    3 | ayesha binth mohammed muneer |   16 | m.tech     |
+|    4 | nawaf                        |   16 | btech      |
++------+------------------------------+------+------------+
+4 rows in set (0.00 sec)
+
+mysql> select * from college where id<=5;
++------+------------------------------+------+------------+
+| id   | name                         | age  | department |
++------+------------------------------+------+------------+
+|    1 | robin sakariyya              |   23 | mca        |
+|    2 | beegum hasrath mahal         |   12 | m.com      |
+|    3 | ayesha binth mohammed muneer |   16 | m.tech     |
+|    4 | nawaf                        |   16 | btech      |
+|    5 | hena                         |   18 | bca        |
++------+------------------------------+------+------------+
+5 rows in set (0.00 sec)
+
+mysql> select * from college where id>7 and id<10;
++------+--------+------+------------+
+| id   | name   | age  | department |
++------+--------+------+------------+
+|    8 | beegum |   24 | m.com      |
+|    9 | akash  |   22 | mca        |
++------+--------+------+------------+
+2 rows in set (0.00 sec)
+
+mysql> select name from college where name like 'a%';
++------------------------------+
+| name                         |
++------------------------------+
+| ayesha binth mohammed muneer |
+| abay                         |
+| akash                        |
+| asna                         |
++------------------------------+
+4 rows in set (0.00 sec)
+
+mysql> select name from college where name like '_a%';
++-------+
+| name  |
++-------+
+| nawaf |
++-------+
+1 row in set (0.00 sec)
+
+mysql> select name from college where name like '_e%';
++----------------------+
+| name                 |
++----------------------+
+| beegum hasrath mahal |
+| hena                 |
+| beegum               |
++----------------------+
+3 rows in set (0.00 sec)
+
+mysql> select name from college where name like '%e%';
++------------------------------+
+| name                         |
++------------------------------+
+| beegum hasrath mahal         |
+| ayesha binth mohammed muneer |
+| hena                         |
+| beegum                       |
++------------------------------+
+4 rows in set (0.00 sec)
+
+mysql>
