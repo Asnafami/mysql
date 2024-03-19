@@ -1,0 +1,322 @@
+mysql> use tbl;
+Database changed
+mysql> select * from employee;
++------+----------+------------+-------------+-----------------+--------+
+| ssn  | name     | dept       | projectname | projectlocation | salary |
++------+----------+------------+-------------+-----------------+--------+
+| 1    | asna     | production | srs         | malappuram      |   NULL |
+| 2    | ajisa    | hr         | development | kozhikode       |   NULL |
+| 3    | hena     | finance    | abc         | delhi           |   NULL |
+| 4    | mirza    | finance    | erp         | kozhikode       |   NULL |
+| 5    | hasna    | marketing  | nhr         | delhi           |   NULL |
+| 6    | ashitha  | sales      | exp         | delhi           |   NULL |
+| 7    | anagha   | marketing  | aes         | wayanad         |   NULL |
+| 8    | diya     | finance    | snp         | malappuram      |   NULL |
+| 9    | roushada | hr         | frd         | wayanad         |   NULL |
+| 10   | kavya    | production | development | malappuram      |   NULL |
++------+----------+------------+-------------+-----------------+--------+
+10 rows in set (0.02 sec)
+
+mysql> select * from employee where dept="finance" and projectlocation="delhi";
++------+------+---------+-------------+-----------------+--------+
+| ssn  | name | dept    | projectname | projectlocation | salary |
++------+------+---------+-------------+-----------------+--------+
+| 3    | hena | finance | abc         | delhi           |   NULL |
++------+------+---------+-------------+-----------------+--------+
+1 row in set (0.00 sec)
+
+mysql> select * from employee where dept="hr" or projectname="development";
++------+----------+------------+-------------+-----------------+--------+
+| ssn  | name     | dept       | projectname | projectlocation | salary |
++------+----------+------------+-------------+-----------------+--------+
+| 2    | ajisa    | hr         | development | kozhikode       |   NULL |
+| 9    | roushada | hr         | frd         | wayanad         |   NULL |
+| 10   | kavya    | production | development | malappuram      |   NULL |
++------+----------+------------+-------------+-----------------+--------+
+3 rows in set (0.00 sec)
+
+mysql> select * from employee order by name;
++------+----------+------------+-------------+-----------------+--------+
+| ssn  | name     | dept       | projectname | projectlocation | salary |
++------+----------+------------+-------------+-----------------+--------+
+| 2    | ajisa    | hr         | development | kozhikode       |   NULL |
+| 7    | anagha   | marketing  | aes         | wayanad         |   NULL |
+| 6    | ashitha  | sales      | exp         | delhi           |   NULL |
+| 1    | asna     | production | srs         | malappuram      |   NULL |
+| 8    | diya     | finance    | snp         | malappuram      |   NULL |
+| 5    | hasna    | marketing  | nhr         | delhi           |   NULL |
+| 3    | hena     | finance    | abc         | delhi           |   NULL |
+| 10   | kavya    | production | development | malappuram      |   NULL |
+| 4    | mirza    | finance    | erp         | kozhikode       |   NULL |
+| 9    | roushada | hr         | frd         | wayanad         |   NULL |
++------+----------+------------+-------------+-----------------+--------+
+10 rows in set (0.00 sec)
+
+mysql> select * from employee order by name desc;
++------+----------+------------+-------------+-----------------+--------+
+| ssn  | name     | dept       | projectname | projectlocation | salary |
++------+----------+------------+-------------+-----------------+--------+
+| 9    | roushada | hr         | frd         | wayanad         |   NULL |
+| 4    | mirza    | finance    | erp         | kozhikode       |   NULL |
+| 10   | kavya    | production | development | malappuram      |   NULL |
+| 3    | hena     | finance    | abc         | delhi           |   NULL |
+| 5    | hasna    | marketing  | nhr         | delhi           |   NULL |
+| 8    | diya     | finance    | snp         | malappuram      |   NULL |
+| 1    | asna     | production | srs         | malappuram      |   NULL |
+| 6    | ashitha  | sales      | exp         | delhi           |   NULL |
+| 7    | anagha   | marketing  | aes         | wayanad         |   NULL |
+| 2    | ajisa    | hr         | development | kozhikode       |   NULL |
++------+----------+------------+-------------+-----------------+--------+
+10 rows in set (0.00 sec)
+
+mysql> update employee set salary=1000 where ssn=1;
+ERROR 1264 (22003): Out of range value for column 'salary' at row 1
+mysql> update employee set salary=100 where ssn=1;
+Query OK, 1 row affected (0.01 sec)
+Rows matched: 1  Changed: 1  Warnings: 0
+
+mysql> alter table employee drop column salary;
+Query OK, 0 rows affected (0.27 sec)
+Records: 0  Duplicates: 0  Warnings: 0
+
+mysql> alter table employee add column salary float(10,2);
+Query OK, 0 rows affected, 1 warning (0.02 sec)
+Records: 0  Duplicates: 0  Warnings: 1
+
+mysql> update employee set salary=10000.10 where ssn=1;
+Query OK, 1 row affected (0.00 sec)
+Rows matched: 1  Changed: 1  Warnings: 0
+
+mysql> update employee set salary=50000.25 where ssn=2;
+Query OK, 1 row affected (0.00 sec)
+Rows matched: 1  Changed: 1  Warnings: 0
+
+mysql> update employee set salary=95000.75 where ssn=3;
+Query OK, 1 row affected (0.00 sec)
+Rows matched: 1  Changed: 1  Warnings: 0
+
+mysql> update employee set salary=30000.20 where ssn=4;
+Query OK, 1 row affected (0.00 sec)
+Rows matched: 1  Changed: 1  Warnings: 0
+
+mysql> update employee set salary=24000.25 where ssn=5;
+Query OK, 1 row affected (0.00 sec)
+Rows matched: 1  Changed: 1  Warnings: 0
+
+mysql> update employee set salary=50000.37 where ssn=6;
+Query OK, 1 row affected (0.00 sec)
+Rows matched: 1  Changed: 1  Warnings: 0
+
+mysql> update employee set salary=10000.25 where ssn=7;
+Query OK, 1 row affected (0.00 sec)
+Rows matched: 1  Changed: 1  Warnings: 0
+
+mysql> update employee set salary=80000.10 where ssn=8;
+Query OK, 1 row affected (0.00 sec)
+Rows matched: 1  Changed: 1  Warnings: 0
+
+mysql> update employee set salary=75000.70 where ssn=9;
+Query OK, 1 row affected (0.00 sec)
+Rows matched: 1  Changed: 1  Warnings: 0
+
+mysql> update employee set salary=95000.76 where ssn=10;
+Query OK, 1 row affected (0.00 sec)
+Rows matched: 1  Changed: 1  Warnings: 0
+
+mysql> select * from employee;
++------+----------+------------+-------------+-----------------+----------+
+| ssn  | name     | dept       | projectname | projectlocation | salary   |
++------+----------+------------+-------------+-----------------+----------+
+| 1    | asna     | production | srs         | malappuram      | 10000.10 |
+| 2    | ajisa    | hr         | development | kozhikode       | 50000.25 |
+| 3    | hena     | finance    | abc         | delhi           | 95000.75 |
+| 4    | mirza    | finance    | erp         | kozhikode       | 30000.20 |
+| 5    | hasna    | marketing  | nhr         | delhi           | 24000.25 |
+| 6    | ashitha  | sales      | exp         | delhi           | 50000.37 |
+| 7    | anagha   | marketing  | aes         | wayanad         | 10000.25 |
+| 8    | diya     | finance    | snp         | malappuram      | 80000.10 |
+| 9    | roushada | hr         | frd         | wayanad         | 75000.70 |
+| 10   | kavya    | production | development | malappuram      | 95000.76 |
++------+----------+------------+-------------+-----------------+----------+
+10 rows in set (0.00 sec)
+
+mysql> select salary from employee where salary between 10000 and 40000;
++----------+
+| salary   |
++----------+
+| 10000.10 |
+| 30000.20 |
+| 24000.25 |
+| 10000.25 |
++----------+
+4 rows in set (0.00 sec)
+
+mysql> select min(salary) from employee;
++-------------+
+| min(salary) |
++-------------+
+|    10000.10 |
++-------------+
+1 row in set (0.00 sec)
+
+mysql> select max(salary) from employee;
++-------------+
+| max(salary) |
++-------------+
+|    95000.76 |
++-------------+
+1 row in set (0.00 sec)
+
+mysql> select avg(salary) from employee;
++--------------+
+| avg(salary)  |
++--------------+
+| 51900.373242 |
++--------------+
+1 row in set (0.00 sec)
+
+mysql> select * from employee where dept in(hr,production,finance);
+ERROR 1054 (42S22): Unknown column 'hr' in 'where clause'
+mysql> select * from employee where dept in('hr','production','finance');
++------+----------+------------+-------------+-----------------+----------+
+| ssn  | name     | dept       | projectname | projectlocation | salary   |
++------+----------+------------+-------------+-----------------+----------+
+| 1    | asna     | production | srs         | malappuram      | 10000.10 |
+| 2    | ajisa    | hr         | development | kozhikode       | 50000.25 |
+| 3    | hena     | finance    | abc         | delhi           | 95000.75 |
+| 4    | mirza    | finance    | erp         | kozhikode       | 30000.20 |
+| 8    | diya     | finance    | snp         | malappuram      | 80000.10 |
+| 9    | roushada | hr         | frd         | wayanad         | 75000.70 |
+| 10   | kavya    | production | development | malappuram      | 95000.76 |
++------+----------+------------+-------------+-----------------+----------+
+7 rows in set (0.00 sec)
+
+mysql> select * from employee where dept not in('kozhikode','malappuram');
++------+----------+------------+-------------+-----------------+----------+
+| ssn  | name     | dept       | projectname | projectlocation | salary   |
++------+----------+------------+-------------+-----------------+----------+
+| 1    | asna     | production | srs         | malappuram      | 10000.10 |
+| 2    | ajisa    | hr         | development | kozhikode       | 50000.25 |
+| 3    | hena     | finance    | abc         | delhi           | 95000.75 |
+| 4    | mirza    | finance    | erp         | kozhikode       | 30000.20 |
+| 5    | hasna    | marketing  | nhr         | delhi           | 24000.25 |
+| 6    | ashitha  | sales      | exp         | delhi           | 50000.37 |
+| 7    | anagha   | marketing  | aes         | wayanad         | 10000.25 |
+| 8    | diya     | finance    | snp         | malappuram      | 80000.10 |
+| 9    | roushada | hr         | frd         | wayanad         | 75000.70 |
+| 10   | kavya    | production | development | malappuram      | 95000.76 |
++------+----------+------------+-------------+-----------------+----------+
+10 rows in set (0.00 sec)
+
+mysql> select * from employee where projectlocation not in('kozhikode','malappuram');
++------+----------+-----------+-------------+-----------------+----------+
+| ssn  | name     | dept      | projectname | projectlocation | salary   |
++------+----------+-----------+-------------+-----------------+----------+
+| 3    | hena     | finance   | abc         | delhi           | 95000.75 |
+| 5    | hasna    | marketing | nhr         | delhi           | 24000.25 |
+| 6    | ashitha  | sales     | exp         | delhi           | 50000.37 |
+| 7    | anagha   | marketing | aes         | wayanad         | 10000.25 |
+| 9    | roushada | hr        | frd         | wayanad         | 75000.70 |
++------+----------+-----------+-------------+-----------------+----------+
+5 rows in set (0.00 sec)
+
+mysql> select * from employee where name group by salary order by salary;
+Empty set, 10 warnings (0.01 sec)
+
+mysql> select * from employee where name group by dept order by dept;
+Empty set, 10 warnings (0.00 sec)
+
+mysql> select * from employee where ssn > 2 group by dept order by dept;
++------+----------+------------+-------------+-----------------+----------+
+| ssn  | name     | dept       | projectname | projectlocation | salary   |
++------+----------+------------+-------------+-----------------+----------+
+| 3    | hena     | finance    | abc         | delhi           | 95000.75 |
+| 9    | roushada | hr         | frd         | wayanad         | 75000.70 |
+| 5    | hasna    | marketing  | nhr         | delhi           | 24000.25 |
+| 10   | kavya    | production | development | malappuram      | 95000.76 |
+| 6    | ashitha  | sales      | exp         | delhi           | 50000.37 |
++------+----------+------------+-------------+-----------------+----------+
+5 rows in set (0.00 sec)
+
+mysql> select count (name),dept from employee group by dept;
+ERROR 1630 (42000): FUNCTION tbl.count does not exist. Check the 'Function Name Parsing and Resolution' section in the Reference Manual
+mysql> select count(name),dept from employee group by dept;
++-------------+------------+
+| count(name) | dept       |
++-------------+------------+
+|           2 | production |
+|           2 | hr         |
+|           3 | finance    |
+|           2 | marketing  |
+|           1 | sales      |
++-------------+------------+
+5 rows in set (0.00 sec)
+
+mysql> alter table employee add primary key(ssn);
+Query OK, 0 rows affected (0.19 sec)
+Records: 0  Duplicates: 0  Warnings: 0
+
+mysql> desc employee;
++-----------------+-------------+------+-----+---------+-------+
+| Field           | Type        | Null | Key | Default | Extra |
++-----------------+-------------+------+-----+---------+-------+
+| ssn             | varchar(10) | NO   | PRI | NULL    |       |
+| name            | varchar(20) | YES  |     | NULL    |       |
+| dept            | varchar(20) | YES  |     | NULL    |       |
+| projectname     | varchar(20) | YES  |     | NULL    |       |
+| projectlocation | varchar(25) | YES  |     | NULL    |       |
+| salary          | float(10,2) | YES  |     | NULL    |       |
++-----------------+-------------+------+-----+---------+-------+
+6 rows in set (0.02 sec)
+
+mysql> create table department(did varchar(10),dname varchar(20),dlocation varchar(35));
+Query OK, 0 rows affected (0.02 sec)
+
+mysql> insert into department values(001,production,malappuram;
+ERROR 1064 (42000): You have an error in your SQL syntax; check the manual that corresponds to your MySQL server version for the right syntax to use near '' at line 1
+mysql> insert into department values(001,"production","malappuram");
+Query OK, 1 row affected (0.01 sec)
+
+mysql> insert into department values(002,"hr","kozhikode");
+Query OK, 1 row affected (0.00 sec)
+
+mysql> insert into department values(003,"finance","wayanad");
+Query OK, 1 row affected (0.00 sec)
+
+mysql> insert into department values(004,"production","malappuram");
+Query OK, 1 row affected (0.00 sec)
+
+mysql> insert into department values(005,"finance","delhi");
+Query OK, 1 row affected (0.00 sec)
+
+mysql> insert into department values(006,"sales","wayanad");
+Query OK, 1 row affected (0.00 sec)
+
+mysql> insert into department values(007,"hr","kozhiode");
+Query OK, 1 row affected (0.00 sec)
+
+mysql> insert into department values(008,"production","delhi");
+Query OK, 1 row affected (0.01 sec)
+
+mysql> insert into department values(009,"finance","malappuram");
+Query OK, 1 row affected (0.00 sec)
+
+mysql> insert into department values(010,"hr","delhi");
+Query OK, 1 row affected (0.00 sec)
+
+mysql> select * from department;
++------+------------+------------+
+| did  | dname      | dlocation  |
++------+------------+------------+
+| 1    | production | malappuram |
+| 2    | hr         | kozhikode  |
+| 3    | finance    | wayanad    |
+| 4    | production | malappuram |
+| 5    | finance    | delhi      |
+| 6    | sales      | wayanad    |
+| 7    | hr         | kozhiode   |
+| 8    | production | delhi      |
+| 9    | finance    | malappuram |
+| 10   | hr         | delhi      |
++------+------------+------------+
+10 rows in set (0.00 sec)
