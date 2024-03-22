@@ -1,0 +1,112 @@
+mysql> insert into odr values(11,100,"asna","2020-02-05");
+Query OK, 1 row affected (0.01 sec)
+
+mysql> insert into odr values(12,101,"arya","2024-03-15");
+Query OK, 1 row affected (0.00 sec)
+
+mysql> insert into odr values(13,102,"fami","2023-02-10");
+Query OK, 1 row affected (0.00 sec)
+
+mysql> insert into odr values(13,102,"fami","2002-11-25");
+Query OK, 1 row affected (0.00 sec)
+
+mysql> delete from odr where orderid=13;
+Query OK, 2 rows affected (0.00 sec)
+
+mysql> insert into odr values(14,103,"mirza","2002-11-25");
+Query OK, 1 row affected (0.01 sec)
+
+mysql> insert into odr values(15,104,"hena","2001-12-14");
+Query OK, 1 row affected (0.00 sec)
+
+mysql> insert into odr values(16,105,"hasna","2011-10-20");
+Query OK, 1 row affected (0.00 sec)
+
+mysql> insert into odr values(17,106,"anagha","2012-05-16");
+Query OK, 1 row affected (0.00 sec)
+
+mysql> insert into odr values(18,107,"kavya","2011-11-02");
+Query OK, 1 row affected (0.00 sec)
+
+mysql> insert into odr values(19,108,"aysha","2001-12-18");
+Query OK, 1 row affected (0.00 sec)
+
+mysql> insert into odr values(20,109,"shahana","2009-08-22");
+Query OK, 1 row affected (0.00 sec)
+
+mysql> select * from odr;
++---------+--------+----------+------------+
+| orderid | custid | custname | orderdate  |
++---------+--------+----------+------------+
+|      11 |    100 | asna     | 2002-12-02 |
+|      11 |    100 | asna     | 2020-02-05 |
+|      12 |    101 | arya     | 2024-03-15 |
+|      14 |    103 | mirza    | 2002-11-25 |
+|      15 |    104 | hena     | 2001-12-14 |
+|      16 |    105 | hasna    | 2011-10-20 |
+|      17 |    106 | anagha   | 2012-05-16 |
+|      18 |    107 | kavya    | 2011-11-02 |
+|      19 |    108 | aysha    | 2001-12-18 |
+|      20 |    109 | shahana  | 2009-08-22 |
++---------+--------+----------+------------+
+10 rows in set (0.00 sec)
+
+mysql> delete from odr where orderdate="2002-12-02";
+Query OK, 1 row affected (0.01 sec)
+
+mysql> select * from odr;
++---------+--------+----------+------------+
+| orderid | custid | custname | orderdate  |
++---------+--------+----------+------------+
+|      11 |    100 | asna     | 2020-02-05 |
+|      12 |    101 | arya     | 2024-03-15 |
+|      14 |    103 | mirza    | 2002-11-25 |
+|      15 |    104 | hena     | 2001-12-14 |
+|      16 |    105 | hasna    | 2011-10-20 |
+|      17 |    106 | anagha   | 2012-05-16 |
+|      18 |    107 | kavya    | 2011-11-02 |
+|      19 |    108 | aysha    | 2001-12-18 |
+|      20 |    109 | shahana  | 2009-08-22 |
++---------+--------+----------+------------+
+9 rows in set (0.00 sec)
+
+mysql> create table product(pro_id int,pro_name varchar(20),ord_id int);
+Query OK, 0 rows affected (0.02 sec)
+
+mysql> insert into product values(101,"laptop",1111);
+Query OK, 1 row affected (0.00 sec)
+
+mysql> insert into product values(102,"computer",1112);
+Query OK, 1 row affected (0.00 sec)
+
+mysql> insert into product values(103,"mobile",1113);
+Query OK, 1 row affected (0.00 sec)
+
+mysql> insert into product values(104,"table",1114);
+Query OK, 1 row affected (0.00 sec)
+
+mysql> insert into product values(105,"chair",1115);
+Query OK, 1 row affected (0.01 sec)
+
+mysql> select * from product;
++--------+----------+--------+
+| pro_id | pro_name | ord_id |
++--------+----------+--------+
+|    101 | laptop   |   1111 |
+|    102 | computer |   1112 |
+|    103 | mobile   |   1113 |
+|    104 | table    |   1114 |
+|    105 | chair    |   1115 |
++--------+----------+--------+
+5 rows in set (0.00 sec)
+
+mysql> select odr.orderid,odr.custid,odr.custname,odr.orderdate,product.pro_id,product.pro_name,product.ord_id from odr join product on odr.custid=product.pro_id;
++---------+--------+----------+------------+--------+----------+--------+
+| orderid | custid | custname | orderdate  | pro_id | pro_name | ord_id |
++---------+--------+----------+------------+--------+----------+--------+
+|      12 |    101 | arya     | 2024-03-15 |    101 | laptop   |   1111 |
+|      14 |    103 | mirza    | 2002-11-25 |    103 | mobile   |   1113 |
+|      15 |    104 | hena     | 2001-12-14 |    104 | table    |   1114 |
+|      16 |    105 | hasna    | 2011-10-20 |    105 | chair    |   1115 |
++---------+--------+----------+------------+--------+----------+--------+
+4 rows in set (0.00 sec)
