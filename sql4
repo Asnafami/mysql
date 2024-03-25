@@ -1,0 +1,125 @@
+mysql> select * from product;
++--------+----------+---------+
+| pro_id | pro_name | orderid |
++--------+----------+---------+
+|    100 | laptop   |      11 |
+|    101 | mobile   |      12 |
+|    102 | computer |      14 |
+|    103 | watch    |      15 |
+|    104 | table    |      16 |
++--------+----------+---------+
+5 rows in set (0.00 sec)
+
+mysql> alter table odr add primary key(orderid);
+Query OK, 0 rows affected (0.21 sec)
+Records: 0  Duplicates: 0  Warnings: 0
+
+mysql> desc odr;
++-----------+-------------+------+-----+---------+-------+
+| Field     | Type        | Null | Key | Default | Extra |
++-----------+-------------+------+-----+---------+-------+
+| orderid   | int         | NO   | PRI | NULL    |       |
+| custid    | int         | YES  |     | NULL    |       |
+| custname  | varchar(25) | YES  |     | NULL    |       |
+| orderdate | date        | YES  |     | NULL    |       |
++-----------+-------------+------+-----+---------+-------+
+4 rows in set (0.00 sec)
+
+mysql> alter table product add foreign key(orderid) references odr(orderid);
+Query OK, 5 rows affected (0.06 sec)
+Records: 5  Duplicates: 0  Warnings: 0
+
+mysql> desc product;
++----------+-------------+------+-----+---------+-------+
+| Field    | Type        | Null | Key | Default | Extra |
++----------+-------------+------+-----+---------+-------+
+| pro_id   | int         | YES  |     | NULL    |       |
+| pro_name | varchar(20) | YES  |     | NULL    |       |
+| orderid  | int         | YES  | MUL | NULL    |       |
++----------+-------------+------+-----+---------+-------+
+3 rows in set (0.00 sec)
+
+mysql> alter table odr add primary key(pro_id);
+ERROR 1068 (42000): Multiple primary key defined
+mysql> alter table product add primary key(pro_id);
+Query OK, 0 rows affected (0.18 sec)
+Records: 0  Duplicates: 0  Warnings: 0
+
+mysql> desc product;
++----------+-------------+------+-----+---------+-------+
+| Field    | Type        | Null | Key | Default | Extra |
++----------+-------------+------+-----+---------+-------+
+| pro_id   | int         | NO   | PRI | NULL    |       |
+| pro_name | varchar(20) | YES  |     | NULL    |       |
+| orderid  | int         | YES  | MUL | NULL    |       |
++----------+-------------+------+-----+---------+-------+
+3 rows in set (0.00 sec)
+
+mysql> select odr.orderid,odr.custid,odr.custname,odr.orderdate,product.pro_id,product.pro_name,product.orderid from odr join product on odr.orderid=product.orderid;
++---------+--------+----------+------------+--------+----------+---------+
+| orderid | custid | custname | orderdate  | pro_id | pro_name | orderid |
++---------+--------+----------+------------+--------+----------+---------+
+|      11 |    100 | asna     | 2020-02-05 |    100 | laptop   |      11 |
+|      12 |    101 | arya     | 2024-03-15 |    101 | mobile   |      12 |
+|      14 |    103 | mirza    | 2002-11-25 |    102 | computer |      14 |
+|      15 |    104 | hena     | 2001-12-14 |    103 | watch    |      15 |
+|      16 |    105 | hasna    | 2011-10-20 |    104 | table    |      16 |
++---------+--------+----------+------------+--------+----------+---------+
+5 rows in set (0.00 sec)
+
+mysql> select * from odr join product on odrerid.primary key=orderid.foreign key;
+ERROR 1064 (42000): You have an error in your SQL syntax; check the manual that corresponds to your MySQL server version for the right syntax to use near 'key=orderid.foreign key' at line 1
+mysql> select * from odr join product on odr.primary key=product.foreign key;
+ERROR 1064 (42000): You have an error in your SQL syntax; check the manual that corresponds to your MySQL server version for the right syntax to use near 'key=product.foreign key' at line 1
+mysql> select * from odr join product on odr.primary key = product.foreign key;
+ERROR 1064 (42000): You have an error in your SQL syntax; check the manual that corresponds to your MySQL server version for the right syntax to use near 'key = product.foreign key' at line 1
+mysql> select * from odr join product on odr.orderid= product.orderid;
++---------+--------+----------+------------+--------+----------+---------+
+| orderid | custid | custname | orderdate  | pro_id | pro_name | orderid |
++---------+--------+----------+------------+--------+----------+---------+
+|      11 |    100 | asna     | 2020-02-05 |    100 | laptop   |      11 |
+|      12 |    101 | arya     | 2024-03-15 |    101 | mobile   |      12 |
+|      14 |    103 | mirza    | 2002-11-25 |    102 | computer |      14 |
+|      15 |    104 | hena     | 2001-12-14 |    103 | watch    |      15 |
+|      16 |    105 | hasna    | 2011-10-20 |    104 | table    |      16 |
++---------+--------+----------+------------+--------+----------+---------+
+5 rows in set (0.00 sec)
+mysql> create table faculty(staff_id int primary key not null,f_no int,f_name varchar(20));
+Query OK, 0 rows affected (0.02 sec)
+
+mysql> insert into faculty values(111,10,"fami");
+Query OK, 1 row affected (0.00 sec)
+
+mysql> insert into faculty values(222,20,"nooree");
+Query OK, 1 row affected (0.00 sec)
+
+mysql> insert into faculty values(333,30,"lamiya");
+Query OK, 1 row affected (0.00 sec)
+
+mysql> insert into faculty values(444,40,"asna");
+Query OK, 1 row affected (0.01 sec)
+
+mysql> insert into faculty values(555,50,"hena");
+Query OK, 1 row affected (0.00 sec)
+
+mysql> select * from faculty;
++----------+------+--------+
+| staff_id | f_no | f_name |
++----------+------+--------+
+|      111 |   10 | fami   |
+|      222 |   20 | nooree |
+|      333 |   30 | lamiya |
+|      444 |   40 | asna   |
+|      555 |   50 | hena   |
++----------+------+--------+
+5 rows in set (0.00 sec)
+
+mysql> desc faculty;
++----------+-------------+------+-----+---------+-------+
+| Field    | Type        | Null | Key | Default | Extra |
++----------+-------------+------+-----+---------+-------+
+| staff_id | int         | NO   | PRI | NULL    |       |
+| f_no     | int         | YES  |     | NULL    |       |
+| f_name   | varchar(20) | YES  |     | NULL    |       |
++----------+-------------+------+-----+---------+-------+
+3 rows in set (0.00 sec)
