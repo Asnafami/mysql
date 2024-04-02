@@ -1,0 +1,29 @@
+mysql> select * from odr natural join product;
++---------+--------+----------+------------+--------+----------+
+| orderid | custid | custname | orderdate  | pro_id | pro_name |
++---------+--------+----------+------------+--------+----------+
+|      11 |    100 | asna     | 2020-02-05 |    100 | laptop   |
+|      12 |    101 | arya     | 2024-03-15 |    101 | mobile   |
+|      14 |    103 | mirza    | 2002-11-25 |    102 | computer |
+|      15 |    104 | hena     | 2001-12-14 |    103 | watch    |
+|      16 |    105 | hasna    | 2011-10-20 |    104 | table    |
++---------+--------+----------+------------+--------+----------+
+5 rows in set (0.02 sec)
+mysql> create view odrview as select orderid,orderdate from odr;
+Query OK, 0 rows affected (0.01 sec)
+
+mysql> select * from odrview;
++---------+------------+
+| orderid | orderdate  |
++---------+------------+
+|      11 | 2020-02-05 |
+|      12 | 2024-03-15 |
+|      14 | 2002-11-25 |
+|      15 | 2001-12-14 |
+|      16 | 2011-10-20 |
+|      17 | 2012-05-16 |
+|      18 | 2011-11-02 |
+|      19 | 2001-12-18 |
+|      20 | 2009-08-22 |
++---------+------------+
+9 rows in set (0.00 sec)
