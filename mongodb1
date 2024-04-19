@@ -1,0 +1,313 @@
+> show dbs
+SREERAG  0.000GB
+admin    0.000GB
+asna     0.000GB
+config   0.000GB
+exam     0.000GB
+local    0.000GB
+sample   0.000GB
+student  0.000GB
+test     0.000GB
+> show collections
+MCA
+Student
+asna
+aysha
+fami
+> use asna
+switched to db asna
+> db.createCollection('mango')
+{ "ok" : 1 }
+> db.mango.insert({"name":"shahana"})
+WriteResult({ "nInserted" : 1 })
+> db.mango.insert({"name":"hena"})
+WriteResult({ "nInserted" : 1 })
+> db.mango.insert({"name":"mirza"})
+WriteResult({ "nInserted" : 1 })
+> db.mango.insert({"name":"nooree"})
+WriteResult({ "nInserted" : 1 })
+> db.mango.insert({"name":"liya"})
+WriteResult({ "nInserted" : 1 })
+> db.mango.insert({"name":"sreya"})
+WriteResult({ "nInserted" : 1 })
+> db.mango.insert({"name":"rahul"})
+WriteResult({ "nInserted" : 1 })
+> db.mango.insert({"name":"abdu"})
+WriteResult({ "nInserted" : 1 })
+> db.mango.insert({"name":"shihan"})
+WriteResult({ "nInserted" : 1 })
+> db.mango.insert({"name":"roushu"})
+WriteResult({ "nInserted" : 1 })
+> db.mango.insert({"name":"riya","age":"12"})
+WriteResult({ "nInserted" : 1 })
+> db.mango.insert({"name":"kartika","age":"21"})
+WriteResult({ "nInserted" : 1 })
+> db.mango.insert({"name":"ziya","age":23})
+WriteResult({ "nInserted" : 1 })
+> db.mango.insert({"name":"sana","age":26})
+WriteResult({ "nInserted" : 1 })
+> db.mango.insert({"name":"fami","age":22})
+WriteResult({ "nInserted" : 1 })
+> db.mango.insert({"name":"isha","age":16})
+WriteResult({ "nInserted" : 1 })
+> db.mango.insert({"name":"aishu","age":66})
+WriteResult({ "nInserted" : 1 })
+> db.mango.find()
+{ "_id" : ObjectId("662227d1dffeabcff740b2f7"), "name" : "shahana" }
+{ "_id" : ObjectId("662228d7dffeabcff740b2f8"), "name" : "hena" }
+{ "_id" : ObjectId("662228e8dffeabcff740b2f9"), "name" : "mirza" }
+{ "_id" : ObjectId("662228f1dffeabcff740b2fa"), "name" : "nooree" }
+{ "_id" : ObjectId("662228f9dffeabcff740b2fb"), "name" : "liya" }
+{ "_id" : ObjectId("66222903dffeabcff740b2fc"), "name" : "sreya" }
+{ "_id" : ObjectId("6622290cdffeabcff740b2fd"), "name" : "rahul" }
+{ "_id" : ObjectId("66222931dffeabcff740b2fe"), "name" : "abdu" }
+{ "_id" : ObjectId("66222947dffeabcff740b2ff"), "name" : "shihan" }
+{ "_id" : ObjectId("66222963dffeabcff740b300"), "name" : "roushu" }
+{ "_id" : ObjectId("66222a96dffeabcff740b301"), "name" : "riya", "age" : "12" }
+{ "_id" : ObjectId("66222aaadffeabcff740b302"), "name" : "kartika", "age" : "21" }
+{ "_id" : ObjectId("66222af2dffeabcff740b303"), "name" : "ziya", "age" : 23 }
+{ "_id" : ObjectId("66222b06dffeabcff740b304"), "name" : "sana", "age" : 26 }
+{ "_id" : ObjectId("66222b1cdffeabcff740b305"), "name" : "fami", "age" : 22 }
+{ "_id" : ObjectId("66222b71dffeabcff740b306"), "name" : "isha", "age" : 16 }
+{ "_id" : ObjectId("66222b87dffeabcff740b307"), "name" : "aishu", "age" : 66 }
+> db.mango.find.pretty
+> db.mango.find.pretty()
+uncaught exception: TypeError: db.mango.find.pretty is not a function :
+@(shell):1:1
+> db.mango.find().pretty()
+{ "_id" : ObjectId("662227d1dffeabcff740b2f7"), "name" : "shahana" }
+{ "_id" : ObjectId("662228d7dffeabcff740b2f8"), "name" : "hena" }
+{ "_id" : ObjectId("662228e8dffeabcff740b2f9"), "name" : "mirza" }
+{ "_id" : ObjectId("662228f1dffeabcff740b2fa"), "name" : "nooree" }
+{ "_id" : ObjectId("662228f9dffeabcff740b2fb"), "name" : "liya" }
+{ "_id" : ObjectId("66222903dffeabcff740b2fc"), "name" : "sreya" }
+{ "_id" : ObjectId("6622290cdffeabcff740b2fd"), "name" : "rahul" }
+{ "_id" : ObjectId("66222931dffeabcff740b2fe"), "name" : "abdu" }
+{ "_id" : ObjectId("66222947dffeabcff740b2ff"), "name" : "shihan" }
+{ "_id" : ObjectId("66222963dffeabcff740b300"), "name" : "roushu" }
+{
+        "_id" : ObjectId("66222a96dffeabcff740b301"),
+        "name" : "riya",
+        "age" : "12"
+}
+{
+        "_id" : ObjectId("66222aaadffeabcff740b302"),
+        "name" : "kartika",
+        "age" : "21"
+}
+{
+        "_id" : ObjectId("66222af2dffeabcff740b303"),
+        "name" : "ziya",
+        "age" : 23
+}
+{
+        "_id" : ObjectId("66222b06dffeabcff740b304"),
+        "name" : "sana",
+        "age" : 26
+}
+{
+        "_id" : ObjectId("66222b1cdffeabcff740b305"),
+        "name" : "fami",
+        "age" : 22
+}
+{
+        "_id" : ObjectId("66222b71dffeabcff740b306"),
+        "name" : "isha",
+        "age" : 16
+}
+{
+        "_id" : ObjectId("66222b87dffeabcff740b307"),
+        "name" : "aishu",
+        "age" : 66
+}
+> db.mango.find({age:{$gt:21}}).pretty()
+{
+        "_id" : ObjectId("66222af2dffeabcff740b303"),
+        "name" : "ziya",
+        "age" : 23
+}
+{
+        "_id" : ObjectId("66222b06dffeabcff740b304"),
+        "name" : "sana",
+        "age" : 26
+}
+{
+        "_id" : ObjectId("66222b1cdffeabcff740b305"),
+        "name" : "fami",
+        "age" : 22
+}
+{
+        "_id" : ObjectId("66222b87dffeabcff740b307"),
+        "name" : "aishu",
+        "age" : 66
+}
+> db.mango.find({age:{$lt:21}}).pretty()
+{
+        "_id" : ObjectId("66222b71dffeabcff740b306"),
+        "name" : "isha",
+        "age" : 16
+}
+> db.mango.find({age:{$lte:21}}).pretty()
+{
+        "_id" : ObjectId("66222b71dffeabcff740b306"),
+        "name" : "isha",
+        "age" : 16
+}
+> db.mango.distinct("name")
+[
+        "abdu",
+        "aishu",
+        "fami",
+        "hena",
+        "isha",
+        "kartika",
+        "liya",
+        "mirza",
+        "nooree",
+        "rahul",
+        "riya",
+        "roushu",
+        "sana",
+        "shahana",
+        "shihan",
+        "sreya",
+        "ziya"
+]
+> db.mango.count()
+18
+> db.mango.remove({name:"riya"})
+WriteResult({ "nRemoved" : 1 })
+> db.mango.find().pretty()
+{ "_id" : ObjectId("662227d1dffeabcff740b2f7"), "name" : "shahana" }
+{ "_id" : ObjectId("662228d7dffeabcff740b2f8"), "name" : "hena" }
+{ "_id" : ObjectId("662228e8dffeabcff740b2f9"), "name" : "mirza" }
+{ "_id" : ObjectId("662228f1dffeabcff740b2fa"), "name" : "nooree" }
+{ "_id" : ObjectId("662228f9dffeabcff740b2fb"), "name" : "liya" }
+{ "_id" : ObjectId("66222903dffeabcff740b2fc"), "name" : "sreya" }
+{ "_id" : ObjectId("6622290cdffeabcff740b2fd"), "name" : "rahul" }
+{ "_id" : ObjectId("66222931dffeabcff740b2fe"), "name" : "abdu" }
+{ "_id" : ObjectId("66222947dffeabcff740b2ff"), "name" : "shihan" }
+{ "_id" : ObjectId("66222963dffeabcff740b300"), "name" : "roushu" }
+{
+        "_id" : ObjectId("66222aaadffeabcff740b302"),
+        "name" : "kartika",
+        "age" : "21"
+}
+{
+        "_id" : ObjectId("66222af2dffeabcff740b303"),
+        "name" : "ziya",
+        "age" : 23
+}
+{
+        "_id" : ObjectId("66222b06dffeabcff740b304"),
+        "name" : "sana",
+        "age" : 26
+}
+{
+        "_id" : ObjectId("66222b1cdffeabcff740b305"),
+        "name" : "fami",
+        "age" : 22
+}
+{
+        "_id" : ObjectId("66222b71dffeabcff740b306"),
+        "name" : "isha",
+        "age" : 16
+}
+{
+        "_id" : ObjectId("66222b87dffeabcff740b307"),
+        "name" : "aishu",
+        "age" : 66
+}
+> db.mango.insertMany([{name:"raniya",age:23},{name:"niba",age:23}])
+{
+        "acknowledged" : true,
+        "insertedIds" : [
+                ObjectId("66223c3edffeabcff740b309"),
+                ObjectId("66223c3edffeabcff740b30a")
+        ]
+}
+> db.mango.find().pretty()
+{ "_id" : ObjectId("662227d1dffeabcff740b2f7"), "name" : "shahana" }
+{ "_id" : ObjectId("662228d7dffeabcff740b2f8"), "name" : "hena" }
+{ "_id" : ObjectId("662228e8dffeabcff740b2f9"), "name" : "mirza" }
+{ "_id" : ObjectId("662228f1dffeabcff740b2fa"), "name" : "nooree" }
+{ "_id" : ObjectId("662228f9dffeabcff740b2fb"), "name" : "liya" }
+{ "_id" : ObjectId("66222903dffeabcff740b2fc"), "name" : "sreya" }
+{ "_id" : ObjectId("6622290cdffeabcff740b2fd"), "name" : "rahul" }
+{ "_id" : ObjectId("66222931dffeabcff740b2fe"), "name" : "abdu" }
+{ "_id" : ObjectId("66222947dffeabcff740b2ff"), "name" : "shihan" }
+{ "_id" : ObjectId("66222963dffeabcff740b300"), "name" : "roushu" }
+{
+        "_id" : ObjectId("66222aaadffeabcff740b302"),
+        "name" : "kartika",
+        "age" : "21"
+}
+{
+        "_id" : ObjectId("66222af2dffeabcff740b303"),
+        "name" : "ziya",
+        "age" : 23
+}
+{
+        "_id" : ObjectId("66222b06dffeabcff740b304"),
+        "name" : "sana",
+        "age" : 26
+}
+{
+        "_id" : ObjectId("66222b1cdffeabcff740b305"),
+        "name" : "fami",
+        "age" : 22
+}
+{
+        "_id" : ObjectId("66222b71dffeabcff740b306"),
+        "name" : "isha",
+        "age" : 16
+}
+{
+        "_id" : ObjectId("66222b87dffeabcff740b307"),
+        "name" : "aishu",
+        "age" : 66
+}
+{ "_id" : ObjectId("662236a1dffeabcff740b308"), "name" : "hena" }
+{
+        "_id" : ObjectId("66223c3edffeabcff740b309"),
+        "name" : "raniya",
+        "age" : 23
+}
+{
+        "_id" : ObjectId("66223c3edffeabcff740b30a"),
+        "name" : "niba",
+        "age" : 23
+}
+ db.mango.find().sort({name:1})
+{ "_id" : ObjectId("66222931dffeabcff740b2fe"), "name" : "abdu" }
+{ "_id" : ObjectId("66222b87dffeabcff740b307"), "name" : "aishu", "age" : 66 }
+{ "_id" : ObjectId("66222b1cdffeabcff740b305"), "name" : "fami", "age" : 22 }
+{ "_id" : ObjectId("662228d7dffeabcff740b2f8"), "name" : "hena" }
+{ "_id" : ObjectId("662236a1dffeabcff740b308"), "name" : "hena" }
+{ "_id" : ObjectId("66222b71dffeabcff740b306"), "name" : "isha", "age" : 16 }
+{ "_id" : ObjectId("66222aaadffeabcff740b302"), "name" : "kartika", "age" : "21" }
+{ "_id" : ObjectId("662228f9dffeabcff740b2fb"), "name" : "liya" }
+{ "_id" : ObjectId("662228e8dffeabcff740b2f9"), "name" : "mirza" }
+{ "_id" : ObjectId("66223c3edffeabcff740b30a"), "name" : "niba", "age" : 23 }
+{ "_id" : ObjectId("662228f1dffeabcff740b2fa"), "name" : "nooree" }
+{ "_id" : ObjectId("6622290cdffeabcff740b2fd"), "name" : "rahul" }
+{ "_id" : ObjectId("66223c3edffeabcff740b309"), "name" : "raniya", "age" : 23 }
+{ "_id" : ObjectId("66222963dffeabcff740b300"), "name" : "roushu" }
+{ "_id" : ObjectId("66222b06dffeabcff740b304"), "name" : "sana", "age" : 26 }
+{ "_id" : ObjectId("662227d1dffeabcff740b2f7"), "name" : "shahana" }
+{ "_id" : ObjectId("66222947dffeabcff740b2ff"), "name" : "shihan" }
+{ "_id" : ObjectId("66222903dffeabcff740b2fc"), "name" : "sreya" }
+{ "_id" : ObjectId("66222af2dffeabcff740b303"), "name" : "ziya", "age" : 23 }
+> db.mango.find({name:{$regex : "^n" }})
+{ "_id" : ObjectId("662228f1dffeabcff740b2fa"), "name" : "nooree" }
+{ "_id" : ObjectId("66223c3edffeabcff740b30a"), "name" : "niba", "age" : 23 }
+> db.mango.find({name:{$regex : /ni/ }})
+{ "_id" : ObjectId("66223c3edffeabcff740b309"), "name" : "raniya", "age" : 23 }
+{ "_id" : ObjectId("66223c3edffeabcff740b30a"), "name" : "niba", "age" : 23 }
+> db.mango.find().sort({name:-1}).limit(2).forEach(printjson)
+{
+        "_id" : ObjectId("66222af2dffeabcff740b303"),
+        "name" : "ziya",
+        "age" : 23
+}
+{ "_id" : ObjectId("66222903dffeabcff740b2fc"), "name" : "sreya" }
