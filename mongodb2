@@ -1,0 +1,98 @@
+> db.mango.updateOne({name:"shahana"},{$set:{name:"Shahana"}})
+{ "acknowledged" : true, "matchedCount" : 1, "modifiedCount" : 1 }
+> db.mango.find().pretty()
+{ "_id" : ObjectId("662227d1dffeabcff740b2f7"), "name" : "Shahana" }
+{ "_id" : ObjectId("662228d7dffeabcff740b2f8"), "name" : "hena" }
+{ "_id" : ObjectId("662228e8dffeabcff740b2f9"), "name" : "mirza" }
+{ "_id" : ObjectId("662228f1dffeabcff740b2fa"), "name" : "nooree" }
+{ "_id" : ObjectId("662228f9dffeabcff740b2fb"), "name" : "liya" }
+{ "_id" : ObjectId("66222903dffeabcff740b2fc"), "name" : "sreya" }
+{ "_id" : ObjectId("6622290cdffeabcff740b2fd"), "name" : "rahul" }
+{ "_id" : ObjectId("66222931dffeabcff740b2fe"), "name" : "abdu" }
+{ "_id" : ObjectId("66222947dffeabcff740b2ff"), "name" : "shihan" }
+{ "_id" : ObjectId("66222963dffeabcff740b300"), "name" : "roushu" }
+> var bulk = db.mango.initializeUnorderedBulkOp();
+> bulk.insert({name:"kani",age:45});
+> bulk.insert({name:"ani",age:40});
+> bulk.insert({name:"jani",age:23});
+> bulk.insert({name:"mani",age:29});
+> bulk.execute();
+BulkWriteResult({
+        "writeErrors" : [ ],
+        "writeConcernErrors" : [ ],
+        "nInserted" : 4,
+        "nUpserted" : 0,
+        "nMatched" : 0,
+        "nModified" : 0,
+        "nRemoved" : 0,
+        "upserted" : [ ]
+})
+> db.mango.find().pretty();
+{ "_id" : ObjectId("662227d1dffeabcff740b2f7"), "name" : "Shahana" }
+{ "_id" : ObjectId("662228d7dffeabcff740b2f8"), "name" : "hena" }
+{ "_id" : ObjectId("662228e8dffeabcff740b2f9"), "name" : "mirza" }
+{ "_id" : ObjectId("662228f1dffeabcff740b2fa"), "name" : "nooree" }
+{ "_id" : ObjectId("662228f9dffeabcff740b2fb"), "name" : "liya" }
+{ "_id" : ObjectId("66222903dffeabcff740b2fc"), "name" : "sreya" }
+{ "_id" : ObjectId("6622290cdffeabcff740b2fd"), "name" : "rahul" }
+{ "_id" : ObjectId("66222931dffeabcff740b2fe"), "name" : "abdu" }
+{ "_id" : ObjectId("66222947dffeabcff740b2ff"), "name" : "shihan" }
+{ "_id" : ObjectId("66222963dffeabcff740b300"), "name" : "roushu" }
+{
+        "_id" : ObjectId("66222aaadffeabcff740b302"),
+        "name" : "kartika",
+        "age" : "21"
+}
+{
+        "_id" : ObjectId("66222af2dffeabcff740b303"),
+        "name" : "ziya",
+        "age" : 23
+}
+{
+        "_id" : ObjectId("66222b06dffeabcff740b304"),
+        "name" : "sana",
+        "age" : 26
+}
+{
+        "_id" : ObjectId("66222b1cdffeabcff740b305"),
+        "name" : "fami",
+        "age" : 22
+}
+{
+        "_id" : ObjectId("66222b71dffeabcff740b306"),
+        "name" : "isha",
+        "age" : 16
+}
+{
+        "_id" : ObjectId("66222b87dffeabcff740b307"),
+        "name" : "aishu",
+        "age" : 66
+}
+{ "_id" : ObjectId("662236a1dffeabcff740b308"), "name" : "hena" }
+{
+        "_id" : ObjectId("66223c3edffeabcff740b309"),
+        "name" : "raniya",
+        "age" : 23
+}
+{
+        "_id" : ObjectId("66223c3edffeabcff740b30a"),
+        "name" : "niba",
+        "age" : 23
+}
+{
+        "_id" : ObjectId("66278042e66af3afd8be41e7"),
+        "name" : "kani",
+        "age" : 45
+}
+Type "it" for more
+> it
+{ "_id" : ObjectId("66278042e66af3afd8be41e8"), "name" : "ani", "age" : 40 }
+{
+        "_id" : ObjectId("66278042e66af3afd8be41e9"),
+        "name" : "jani",
+        "age" : 23
+}
+{
+        "_id" : ObjectId("66278042e66af3afd8be41ea"),
+        "name" : "mani",
+        "age" : 29}
